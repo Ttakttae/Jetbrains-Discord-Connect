@@ -1,14 +1,11 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
-    <id>com.Ttakttae.Jetbrains-Discord-Connect</id>
-
-    <!-- Public plugin name should be written in Title Case.
-         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <id>com.Ttakttae.Jetbrains_Discord_Connect</id>
     <name>Jetbrains-Discord-Connect</name>
+    <version>1.0.0</version>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+    <vendor email="tm.ttakttae@gmail.com" url="https://www.github.com/Ttakttae">Ttakttae</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
@@ -25,6 +22,19 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <applicationConfigurable
+                parentId="tools"
+                instance="com.Ttakttae.Jetbrains_Discord_Connect"
+                id="com.Ttakttae.Jetbrains_Discord_Connect"
+                displayName="Discord"/>
     </extensions>
+    <actions>
+        <group id="Jetbrains_Discord_Connect.Tool_Button" text="Discord" popup="true" icon="Icons.DiscordLogo">
+            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="KotlinToolsGroup"/>
+            <action id="Jetbrains_Discord_Connect.Show_Activity" class="Show_Activity" text="Show Activity">
+            </action>
+            <action id="Jetbrains_Discord_Connection.More_Settings" class="More_Settings" text="More Settings" icon="AllIcons.General.Settings">
+            </action>
+        </group>
+    </actions>
 </idea-plugin>
