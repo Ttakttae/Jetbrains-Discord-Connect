@@ -11,9 +11,8 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    Ttakttae's first Jetbrains plugin!<br>
-    <em>most HTML tags may be used</em>
-  ]]></description>
+    This plugin helps you connect discord with your jetbrains IDE.
+    ]]></description>
 
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
@@ -25,16 +24,24 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationConfigurable
                 parentId="tools"
-                instance="com.Ttakttae.Jetbrains_Discord_Connect"
+                instance="Settins.ApplicationConfigurable"
                 id="com.Ttakttae.Jetbrains_Discord_Connect"
                 displayName="Discord"/>
+        <projectConfigurable
+                parentId="tools"
+                instance="com.example.ProjectSettingsConfigurable"
+                id="com.example.ProjectSettingsConfigurable"
+                displayName="My Project Settings"
+                nonDefaultProject="true"/>
     </extensions>
     <actions>
-        <group id="Jetbrains_Discord_Connect.Tool_Button" text="Discord" popup="true" icon="Icons.DiscordLogo">
+        <group id="Tool_Button" text="Discord" popup="true" icon="Icons.DiscordLogo">
             <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="KotlinToolsGroup"/>
-            <action id="Jetbrains_Discord_Connect.Show_Activity" class="Show_Activity" text="Show Activity">
+            <action id="Tool_Button.Show_Activity" class="Actions.Show_Activity" text="Show Activity">
             </action>
-            <action id="Jetbrains_Discord_Connection.More_Settings" class="More_Settings" text="More Settings" icon="AllIcons.General.Settings">
+            <action id="Tool_Button.force_reconnect" class="Actions.force_reconnect" text="Force Reconnect">
+            </action>
+            <action id="Tool_Button.More_Settings" class="Actions.More_Settings" text="More Settings" icon="AllIcons.General.Settings">
             </action>
         </group>
     </actions>

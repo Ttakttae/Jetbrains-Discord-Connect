@@ -1,18 +1,15 @@
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.ToggleAction;
-import org.jetbrains.annotations.NotNull;
+package Actions
 
-public class Show_Activity extends ToggleAction {
+import com.intellij.openapi.actionSystem.AnActionEvent
+import com.intellij.openapi.actionSystem.ToggleAction
 
-    boolean selection = false;
-
-    @Override
-    public boolean isSelected(@NotNull AnActionEvent anActionEvent) {
-        return selection;
+class Show_Activity : ToggleAction() {
+    var selection = false
+    override fun isSelected(anActionEvent: AnActionEvent): Boolean {
+        return selection
     }
 
-    @Override
-    public void setSelected(@NotNull AnActionEvent anActionEvent, boolean b) {
-        selection = !selection;
+    override fun setSelected(anActionEvent: AnActionEvent, b: Boolean) {
+        selection = !selection
     }
 }
