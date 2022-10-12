@@ -22,26 +22,27 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <applicationConfigurable
-                parentId="tools"
-                instance="Settins.ApplicationConfigurable"
-                id="com.Ttakttae.Jetbrains_Discord_Connect"
-                displayName="Discord"/>
-        <projectConfigurable
-                parentId="tools"
-                instance="com.example.ProjectSettingsConfigurable"
-                id="com.example.ProjectSettingsConfigurable"
-                displayName="My Project Settings"
-                nonDefaultProject="true"/>
+<!--        <applicationConfigurable-->
+<!--                parentId="tools"-->
+<!--                instance="Settins.ApplicationConfigurable"-->
+<!--                id="com.Ttakttae.Jetbrains_Discord_Connect"-->
+<!--                displayName="Discord"/>-->
+<!--        <projectConfigurable-->
+<!--                parentId="tools"-->
+<!--                instance="com.example.ProjectSettingsConfigurable"-->
+<!--                id="com.example.ProjectSettingsConfigurable"-->
+<!--                displayName="My Project Settings"-->
+<!--                nonDefaultProject="true"/>-->
+        <preloadingActivity implementation="com.Ttakttae.Jetbrains_Discord_Connect.Discord.Connect" />
     </extensions>
     <actions>
-        <group id="Tool_Button" text="Discord" popup="true" icon="Icons.DiscordLogo">
+        <group id="Tool_Button" text="Discord" popup="true" icon="com.Ttakttae.Jetbrains_Discord_Connect.Icons.icons.DiscordLogo">
             <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="KotlinToolsGroup"/>
-            <action id="Tool_Button.Show_Activity" class="Actions.Show_Activity" text="Show Activity">
+            <action id="Tool_Button.Show_Activity" class="com.Ttakttae.Jetbrains_Discord_Connect.Actions.Show_Activity" text="Show Activity">
             </action>
-            <action id="Tool_Button.force_reconnect" class="Actions.force_reconnect" text="Force Reconnect">
+            <action id="Tool_Button.force_reconnect" class="com.Ttakttae.Jetbrains_Discord_Connect.Actions.force_reconnect" text="Force Reconnect">
             </action>
-            <action id="Tool_Button.More_Settings" class="Actions.More_Settings" text="More Settings" icon="AllIcons.General.Settings">
+            <action id="Tool_Button.More_Settings" class="com.Ttakttae.Jetbrains_Discord_Connect.Actions.More_Settings" text="More Settings" icon="AllIcons.General.Settings">
             </action>
         </group>
     </actions>

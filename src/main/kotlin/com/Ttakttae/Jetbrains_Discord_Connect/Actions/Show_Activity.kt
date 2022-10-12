@@ -1,4 +1,4 @@
-package Actions
+package com.Ttakttae.Jetbrains_Discord_Connect.Actions
 
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.ToggleAction

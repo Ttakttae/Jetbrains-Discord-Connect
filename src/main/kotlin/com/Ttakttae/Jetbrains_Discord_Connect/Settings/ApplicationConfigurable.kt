@@ -1,9 +1,10 @@
-package Settings
+package com.Ttakttae.Jetbrains_Discord_Connect.Settings
+
 
 import com.intellij.openapi.options.Configurable
 import javax.swing.JComponent
 
-class ProjectConfigurable : Configurable {
+class ApplicationConfigurable : Configurable {
     override fun createComponent(): JComponent? {
         TODO("Not yet implemented")
     }

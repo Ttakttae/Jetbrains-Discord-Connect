@@ -1,4 +1,4 @@
-package Icons
+package com.Ttakttae.Jetbrains_Discord_Connect.Icons
 
 import com.intellij.openapi.util.IconLoader
 
