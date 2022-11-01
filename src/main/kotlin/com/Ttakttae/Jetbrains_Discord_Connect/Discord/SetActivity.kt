@@ -17,11 +17,11 @@ class SetActivity {
             params.flags = CreateParams.getDefaultFlags()
             Core(params).use { core ->
                 Activity().use { activity ->
-                    activity.details = ""
-                    activity.state = ""
+                    activity.details = "Testing NEW PLUGIN"
+                    activity.state = "Code With Me"
                     activity.type = ActivityType.PLAYING
                     activity.timestamps().start = Instant.now()
-                    activity.assets().largeImage = "https://cdn.discordapp.com/app-assets/1036849907954368563/intellij_idea_logo.png"
+                    activity.assets().largeImage = "intellij_idea_logo"
 
                     activity.party().size().maxSize = 10
                     activity.party().size().currentSize = 1
