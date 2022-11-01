@@ -11,7 +11,7 @@ import java.time.Instant
 
 class SetActivity {
     fun set_activity() {
-        Core.init(File("/Users/hyunwoo/Documents/Coding_Projects/Jetbrains-Discord-Connect/discord_game_sdk_v2/lib/x86_64/discord_game_sdk.dylib"))
+        Core.init(File("C:\\github.com\\Ttakttae\\Jetbrains-Discord-Connect\\discord_game_sdk_v2\\lib\\x86_64\\discord_game_sdk.dll"))
         CreateParams().use { params ->
             params.clientID = 1036849907954368563L
             params.flags = CreateParams.getDefaultFlags()
