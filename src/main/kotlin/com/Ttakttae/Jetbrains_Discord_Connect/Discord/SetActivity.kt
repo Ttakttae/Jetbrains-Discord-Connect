@@ -21,7 +21,11 @@ class SetActivity {
                     activity.state = "Code With Me"
                     activity.type = ActivityType.PLAYING
                     activity.timestamps().start = Instant.now()
+
                     activity.assets().largeImage = "intellij_idea_logo"
+                    activity.assets().largeText = "Intellij IDEA"
+                    activity.assets().smallImage = "python"
+                    activity.assets().smallText = "Python"
 
                     activity.party().size().maxSize = 10
                     activity.party().size().currentSize = 1
