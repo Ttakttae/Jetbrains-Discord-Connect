@@ -1,5 +1,6 @@
 package com.Ttakttae.Jetbrains_Discord_Connect.Discord
 
+import de.jcm.discordgamesdk.ActivityManager
 import de.jcm.discordgamesdk.Core
 import de.jcm.discordgamesdk.CreateParams
 import de.jcm.discordgamesdk.activity.Activity
@@ -7,45 +8,42 @@ import de.jcm.discordgamesdk.activity.ActivityType
 import java.io.File
 import java.time.Instant
 
-import com.Ttakttae.Jetbrains_Discord_Connect.data.Data
-
 class SetActivity {
-    fun updateActivity() {
-        Core.init(File("C:\\github.com\\Ttakttae\\Jetbrains-Discord-Connect\\discord_game_sdk_v2\\lib\\x86_64\\discord_game_sdk.dll"))
+    fun updateActivity(applicationID: Long, details: String, state: String, type: ActivityType,
+                       largeImage: String, largeText: String, smallImage: String, smallText: String,
+                       partyId: String, partyCurrentSize: Int, partyMaxSize: Int,
+                       matchSecret: String, joinSecret: String, spectateSecret: String,
+                       instance: Boolean) {
+        Core.init(File("/Users/hyunwoo/Documents/Coding_Projects/Jetbrains-Discord-Connect/discord_game_sdk_v2/lib/x86_64/discord_game_sdk.dylib"))
         CreateParams().use { params ->
-            params.clientID = 1036849907954368563L
+            params.clientID = applicationID
             params.flags = CreateParams.getDefaultFlags()
-            val data = Data()
-            var editorData: Array<String>
-
-            val startTime = Instant.now()
-
             Core(params).use { core ->
-                // Run callbacks forever
+                Activity().use { activity ->
+                    activity.details = details
+                    activity.state = state
+                    activity.type = type
+
+                    activity.timestamps().start = Instant.now()
+
+                    activity.assets().largeImage = largeImage
+                    activity.assets().largeText = largeText
+                    activity.assets().smallImage = smallImage
+                    activity.assets().smallText = smallText
+
+                    activity.party().size().maxSize = partyMaxSize
+                    activity.party().size().currentSize = partyCurrentSize
+                    activity.party().id = partyId
+
+                    activity.secrets().matchSecret = matchSecret
+                    activity.secrets().joinSecret = joinSecret
+                    activity.secrets().spectateSecret = spectateSecret
+
+                    activity.instance = instance
+
+                    core.activityManager().updateActivity(activity)
+                }
                 while (true) {
-                    Activity().use { activity ->
-                        editorData = data.getData()
-
-                        activity.details = editorData[0]
-                        activity.state = editorData[1]
-                        activity.type = ActivityType.PLAYING
-
-                        activity.timestamps().start = startTime
-
-                        activity.assets().largeImage = "intellij_idea_logo"
-                        activity.assets().largeText = "IntelliJ IDEA Ultimate"
-//                        activity.assets().smallImage = "python"
-//                        activity.assets().smallText = "Python"
-
-//                        activity.party().size().maxSize = 10
-//                        activity.party().size().currentSize = 1
-//                        activity.party().id = "Party!"
-//
-//                        activity.secrets().joinSecret = "Join!"
-
-                        core.activityManager().updateActivity(activity)
-                    }
-
                     core.runCallbacks()
                     try {
                         // Sleep a bit to save CPU
