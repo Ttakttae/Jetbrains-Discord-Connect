@@ -6,23 +6,26 @@ import com.intellij.openapi.fileEditor.FileEditor
 import com.intellij.openapi.fileEditor.FileEditorManager
 
 class Data {
-    fun getFileName(): String{
+    fun getData(): Array<String> {
         val project: Project? = IdeFocusManager.getGlobalInstance().lastFocusedFrame?.project
         val editor: FileEditor? = project?.let {
             FileEditorManager.getInstance(project)?.selectedEditor
         }
 
         if (project != null) {
+            val projectName = project.name
+
             if (editor != null) {
                 val file = editor.file
 
                 if (file != null) {
                     val fileName = file.name
-                    return fileName
+                    return arrayOf(projectName, fileName)
                 }
             }
+            return arrayOf(projectName, "")
         }
 
-        return "notFound!"
+        return arrayOf("", "")
     }
 }

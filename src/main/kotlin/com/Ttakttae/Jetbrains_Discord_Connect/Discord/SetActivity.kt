@@ -16,22 +16,26 @@ class SetActivity {
             params.clientID = 1036849907954368563L
             params.flags = CreateParams.getDefaultFlags()
             val data = Data()
+            var editorData: Array<String>
+
             val startTime = Instant.now()
 
             Core(params).use { core ->
                 // Run callbacks forever
                 while (true) {
                     Activity().use { activity ->
-                        activity.details = data.getFileName()
-                        activity.state = "Code With Me"
+                        editorData = data.getData()
+
+                        activity.details = editorData[0]
+                        activity.state = editorData[1]
                         activity.type = ActivityType.PLAYING
 
                         activity.timestamps().start = startTime
 
                         activity.assets().largeImage = "intellij_idea_logo"
                         activity.assets().largeText = "IntelliJ IDEA Ultimate"
-                        activity.assets().smallImage = "python"
-                        activity.assets().smallText = "Python"
+//                        activity.assets().smallImage = "python"
+//                        activity.assets().smallText = "Python"
 
 //                        activity.party().size().maxSize = 10
 //                        activity.party().size().currentSize = 1
