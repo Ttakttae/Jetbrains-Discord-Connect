@@ -34,7 +34,7 @@
 <!--                displayName="My Project Settings"-->
 <!--                nonDefaultProject="true"/>-->
         <preloadingActivity implementation="com.Ttakttae.Jetbrains_Discord_Connect.Activity.PreloadingActivity" />
-        <backgroundPostStartupActivity implementation="com.Ttakttae.Jetbrains_Discord_Connect.Activity.BackgroundPostStartupActivity" />
+<!--        <backgroundPostStartupActivity implementation="com.Ttakttae.Jetbrains_Discord_Connect.Activity.BackgroundPostStartupActivity" />-->
     </extensions>
     <actions>
         <group id="Tool_Button" text="Discord" popup="true" icon="com.Ttakttae.Jetbrains_Discord_Connect.Icons.icons.DiscordLogo">

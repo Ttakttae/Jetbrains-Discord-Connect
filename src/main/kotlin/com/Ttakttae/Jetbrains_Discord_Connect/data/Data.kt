@@ -6,26 +6,40 @@ import com.intellij.openapi.fileEditor.FileEditor
 import com.intellij.openapi.fileEditor.FileEditorManager
 
 class Data {
-    fun getData(): Array<String> {
+    class EditorData(
+        val projectName: String,
+        val fileName: String
+    ) {
+        val fileType: String = when() {
+            "py" -> "python"
+        }
+
+        private fun getFileType(fileName: String) String {
+            val
+        }
+    }
+
+    fun getData(): EditorData {
         val project: Project? = IdeFocusManager.getGlobalInstance().lastFocusedFrame?.project
         val editor: FileEditor? = project?.let {
             FileEditorManager.getInstance(project)?.selectedEditor
         }
 
+        var projectName = ""
+        var fileName    = ""
+
         if (project != null) {
-            val projectName = project.name
+            projectName = project.name
 
             if (editor != null) {
                 val file = editor.file
 
                 if (file != null) {
-                    val fileName = file.name
-                    return arrayOf(projectName, fileName)
+                    fileName = file.file
                 }
             }
-            return arrayOf(projectName, "")
         }
 
-        return arrayOf("", "")
+        return EditorData(projectName, fileName)
     }
 }
