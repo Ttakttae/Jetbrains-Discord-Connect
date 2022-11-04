@@ -9,15 +9,16 @@ class Data {
     class EditorData(
         val projectName: String,
         val fileName: String
-    ) {
-        val fileType: String = when() {
-            "py" -> "python"
-        }
-
-        private fun getFileType(fileName: String) String {
-            val
-        }
-    }
+    )
+//    {
+//        val fileType: String = when() {
+//            "py" -> "python"
+//        }
+//
+//        private fun getFileType(fileName: String) String {
+//            val
+//        }
+//    }
 
     fun getData(): EditorData {
         val project: Project? = IdeFocusManager.getGlobalInstance().lastFocusedFrame?.project
@@ -35,7 +36,7 @@ class Data {
                 val file = editor.file
 
                 if (file != null) {
-                    fileName = file.file
+                    fileName = file.name
                 }
             }
         }
